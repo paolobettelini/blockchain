@@ -1,0 +1,163 @@
+\documentclass[../documentation.tex]{subfiles}
+
+\begin{document}
+
+% TODO bouncycastle
+% FAT JAR
+
+\subsection{common}
+
+\texttt{common/} is a gradle module containing utils and
+the blockchain protocols.
+
+\subsubsection{Protocol}
+
+The \texttt{protocol/} folder contains all the packets and constants.
+
+\subsubsection{Utils}
+
+The \texttt{utils/} contains various utils.
+
+\paragraph{Byteutils} (\texttt{byteutils/})
+
+Utils for serializing data into byte streams.
+
+\paragraph{Crypto} (\texttt{crypto/})
+
+Utils for hashing, generating keypairs and signing (EdDSA), base64 conversion.
+
+\paragraph{ParamHandler} (\texttt{paramhandler/})
+
+Library for handling CLI parameters and flags.
+
+\paragraph{Stream} (\texttt{stream/})
+
+Utils for sending and receiving packets over the network.
+
+\subsection{mandate}
+
+The \texttt{protocol/} folder contains all the documents regarding
+the project (documentation + diary).
+
+\subsection{node-full}
+
+\subsubsection{Usage}
+
+\begin{lstlisting}[style=generic]
+     .Arguments: [-p <port>]
+                 [-db <file>]
+                 [-help]
+\end{lstlisting}
+
+\subsection{node-api}
+
+\subsubsection{Usage}
+
+\begin{lstlisting}[style=generic]
+     Arguments: [-nodeport <port>]
+                [-apiport <port>]
+                [-db <file>]
+                [-keystore <keystore.jks> -password <password>]
+                [-h]
+\end{lstlisting}
+
+\subsection{node-miner}
+
+\subsubsection{Usage}
+
+\begin{lstlisting}[style=generic]
+     Arguments: -priv <file>
+                [-p <port>]
+                [-db <file>]
+                [-cores <number>]
+                [-help]
+\end{lstlisting}
+
+\subsection{piccions}
+
+Programming language compiler and virtual machine.
+
+\subsection{scripts}
+
+Utility scripts
+
+\texttt{build.sh} Linux bash shell to build everything
+
+\subsection{seeder}
+
+\subsubsection{Usage}
+
+\begin{lstlisting}[style=generic]
+     Arguments: <port>
+\end{lstlisting}
+
+\subsection{webserver}
+
+\subsubsection{Usage}
+
+\begin{lstlisting}[style=generic]
+     Arguments: -www <path>
+                [-port <port>]
+                [-db <file>]
+                [-ssl <keystore.jks> <password>]
+                [-h]
+\end{lstlisting}
+
+\subsection{website-frontend}
+
+Website source code
+
+\subsection{forger}
+
+\subsubsection{Usage}
+
+\paragraphln{Generate wallet}
+\begin{lstlisting}[style=generic]
+java -jar forger.jar -gen -out ./key.priv
+\end{lstlisting}
+
+\paragraphln{Create transaction}
+\begin{lstlisting}[style=generic]
+java -jar forger.jar -priv ./key.priv -amount 10000
+     -out transaction.tx -to <address>
+\end{lstlisting}
+
+\paragraphln{Create transaction (no HTTP request for lastHash)}
+\begin{lstlisting}[style=generic]
+java -jar forger.jar -priv ./key.priv -last ./last.tx -amount 10000
+     -out transaction.tx -to <address>
+
+java -jar forger.jar -priv ./key.priv -first -amount 10000
+     -out transaction.tx -to <address>
+\end{lstlisting}
+
+\paragraphln{Dump transaction file content}
+\begin{lstlisting}[style=generic]
+java -jar forger.jar -dump ./transaction.tx
+\end{lstlisting}
+
+\paragraphln{Examples of transactions dump}
+
+\texttt{tx1.tx}:
+
+\begin{lstlisting}[style=generic]
+     Amount:         500
+     Recipient:      SQAf8paS6Rr5nnd5dC8Bx5h6YKzdAd0Y0g9UMrTa378=
+     Sender:         ZZ1PjoBwOZQGP0AYPmwxHsa5Z9YhRDaDbE1XIKyCUsA=
+     Signature:      Z0n8TA1zenp+U0ONzSAJLot3JZ5GUedPvViW8vCN8Q6h
+                     vmqB81lHsTFg4g7Gb9DFMcnB8KK6TcknAbIAfZTrBg==
+     LastHash:       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+\end{lstlisting}
+
+\texttt{tx2.tx}:
+
+\begin{lstlisting}[style=generic]
+     Amount:         500
+     Recipient:      SQAf8paS6Rr5nnd5dC8Bx5h6YKzdAd0Y0g9UMrTa378=
+     Sender:         ZZ1PjoBwOZQGP0AYPmwxHsa5Z9YhRDaDbE1XIKyCUsA=
+     Signature:      cwMQC5JtBsUMzjEIVNVt/n+zbzm7k//4eRqav+BiYL3P
+                     LAqcEaK0QyboXl+FfoV2PpqCZqNHNUzi91Z4CsynAQ==
+     LastHash:       MmVCpq21pR/ZLYZwjaMF0AdyRVImq2YZ4MqO9mstnzw=
+\end{lstlisting}
+
+\end{document}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-mpatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain</title>
+
+    <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css">
+    <link rel="icon" href="media/logo.ico" type="image/icon type">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-primary">
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-primary navbar-dark mt-2">
+            <a class="navbar-brand" href="/">
+                <img src="media/logo.png" alt="" width="48" height="48">
+                <span style="font-size: 1em; vertical-align: middle;">
+                    Piccion
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item p-2">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="nav-link active" href="blocks.html">Blocks</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br><br><br>
+
+
+        <div class="row">
+            <div class="col">
+                <div id="forger" class="text-light">
+                    <h1>
+                        Forger
+                    </h1>
+                    <p>Forge transactions and create wallets</p>
+                    <pre>
+                        ./forger [-priv &#60;path&#62;]
+                                 [-out &#60;path&#62;]
+                                 [-amount &#60;value&#62;]
+                                 [-to &#60;address&#62;]
+                                 [-dump &#60;path&#62;]
+                                 [-last &#60;path&#62;]
+                                 [-gen]
+                                 [-help]
+                                 [-examples]
+                                 [-first]
+                    </pre>
+                </div>
+            </div>
+            <div class="col-6">
+
+            </div>
+        </div>
+        <br><br><br>
+
+        <div class="row">
+            <div class="col-6">
+
+            </div>
+            <div class="col">
+                <div id="seeder" class="text-light">
+                    <h1>
+                        Seeder
+                    </h1>
+                    <p>Peer discovery server</p>
+                    <pre>
+                        ./seeder &#60;port&#62;
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+
+        <div class="row">
+            <div class="col-6">
+                <div id="node" class="text-light">
+                    <h1>
+                        Full Node
+                    </h1>
+                    <p>Full functional node</p>
+                    <pre>
+                        ./node [-p &#60;port&#62;]
+                               [-db &#60;file&#62;]
+                               [-help]
+                    </pre>
+                </div>
+            </div>
+            <div class="col-6">
+
+            </div>
+        </div>
+        <br><br><br>
+
+
+        <div class="row">
+            <div class="col-6">
+
+            </div>
+            <div class="col-6">
+                <div id="miner" class="text-light">
+                    <h1>
+                        Miner Node
+                    </h1>
+                    <p>Full node with mining capabilities</p>
+                    <pre>
+                        ./miner -priv &#60;file&#62;
+                                [-p &#60;port&#62;]
+                                [-db &#60;file&#62;]
+                                [-cores &#60;number&#62;]
+                                [-help]
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+
+        <div class="row">
+            <div class="col-6">
+                <div id="api" class="text-light">
+                    <h1>
+                        Api Node
+                    </h1>
+                    <p>Full node with POST HTTP routes</p>
+                    <pre>
+                        ./api [-nodeport &#60;port&#62;]
+                              [-apiport &#60;port&#62;]
+                              [-db &#60;file&#62;]
+                              [-keystore &#60;keystore.jks&#62;
+                               -password &#60;password&#62;]
+                              [-help]
+                    </pre>
+                </div>
+            </div>
+            <div class="col-6">
+
+            </div>
+        </div>
+        <br><br><br>
+
+
+        <div class="row">
+            <div class="col-6">
+
+            </div>
+            <div class="col-6">
+                <div id="webserver" class="text-light">
+                    <h1>
+                        Webserver
+                    </h1>
+                    <pre>
+                        ./webserver -www &#60;path&#62;
+                            [-port &#60;port&#62;]
+                            [-db &#60;file&#62;]
+                            [-ssl &#60;keystore.jks&#62; &#60;password&#62;]
+                            [-help]
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <script src=" js/post.js">
+    </script>
+</body>
+
+</html>

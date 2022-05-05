@@ -1,0 +1,234 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdftitle={Blockchain Diaries},
+    pdfpagemode=FullScreen,
+}
+
+\title{Blockchain - Diaries}
+\author{Paolo Bettelini, Giacinto Di Santis, Gianni Grasso}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Diary}
+
+\subsection*{2022-01-27}
+
+\begin{itemize}
+    \item Created GitHub repository
+    \item Added Readme
+    \item Created Gantt
+    \item Initial analysis
+    \item Documentation
+    \item Gradle init
+\end{itemize}
+
+Today we started to take a look at the blockchain technology.
+We started planning which pieces of software we will need to write in order
+to make everything work. We also initialized the porject using Gradle.
+
+\subsection*{2022-02-03}
+
+\begin{itemize}
+    \item Created node module
+    \item Created seeder module
+    \item Imported SQLite dependency
+    \item Tested SQLite database
+    \item Added LaTeX files to \texttt{.gitignore}
+    \item Seeder packets
+    \item Byte utils classes
+\end{itemize}
+
+Today we created the node and seeder module using gradle.
+We focused on defining the protocol for the seeder application
+(to allow for peer discovery). We wrote che code for the peer discovery
+packets. We also tested SQLite, creating and interacting with a test database.
+
+\subsection*{2022-02-05}
+
+\begin{itemize}
+    \item Design change
+    \item Written seeder service
+    \item Tested connection to seeder
+\end{itemize}
+
+This design change is related to how a user interacts with the blockchain. \\
+Our initial idea was to develop a \textit{client} software alongside the \textit{node} software.
+The \textit{client} would connect to a single node as an entry to the blockchain to broadcast its transactions.
+The user would then be able to broadcast transactions to the blockchain using a web-based application. \\
+This is a poor design choice since it has a number of problems.
+
+\begin{itemize}
+    \item \textbf{Problem 1} Dual-functionality: Each node would need to be able to handle and distinguish both a connection
+    from a node and a connection from a client.
+    \item \textbf{Problem 2} WebAssembly: Both the \textit{client} and \textit{node} software would share the same
+    protocol implementation, written in Java. Since the application is web-based, we would need to
+    compile the \textit{client} code to WebAssembly (WASM) to run on the browser.
+    \item \textbf{Problem 2.1} Sockets: It would be challenging to allow for \textit{socket connections}
+    from a Java-based WASM.
+    \item \textbf{Problem 3} Peer discovery: The client software can't store the addresses of other nodes
+    since it is a web-based application. Even by caching nodes using \textit{cookies}, clients will generally
+    need to rely on \textit{seeders} more than they should.
+\end{itemize}
+
+The solution is to completly remove the client. Only nodes can broacast transactions throughout the network.
+The web application will send requests to a server, which is also a node.
+This server will route the user transactions through its node.
+No WebAssembly is needed. Connection to the seeder will be established (possibly) only the first time the web
+application server's node connects to the blockchain. Users can still host their own node and use them as an entry to the network, and
+multiple users can host their own web application for the same purpose.
+
+\subsection*{2022-02-10}
+
+\begin{itemize}
+    \item Designed peer discovery protocol
+    \item Implemented peer discovery protocol
+    \item Designed logo
+    \item Designed GUI
+    \item Blockchain analysis
+    \item Fat Jar using Gradle
+\end{itemize}
+
+Today we have design the peer discovery protocol and implemented it (not tested).
+We continued to study blockchain algorithms and also design the logo and the GUI for out web application.
+
+\subsection*{2022-02-17}
+
+\begin{itemize}
+    \item Initial Web GUI design
+    \item Initial PoW computation implementation
+    \item Worked on peer discovery and communication protocol
+    \item Database structure discussion
+    \item Initial smart contract language commit
+\end{itemize}
+
+Today we mainly focused on implementing the peer discovery and communication
+protocol.
+
+\subsection*{2022-02-24}
+
+\begin{itemize}
+    \item Finished communication and peer discovery protocol
+    \item Started defining and implementing the high-level blockchain protocol
+    \item Continued to learn about cryptography and blockchain technology
+\end{itemize}
+
+Today we finished the base protocol and started implementing the high-level protocol.
+The outline for the next session is to solve the problem with elliptic curve cryptography (ECDSA).
+
+\subsection*{2022-03-10}
+
+\begin{itemize}
+    \item ECDSA keypair generation
+    \item REST API
+    \item Blockchain consensus algorithm draft
+    \item Some protocol packets
+    \item Website design and css.
+\end{itemize}
+
+The ECDSA signature still doesn't work.
+
+\subsection*{2022-03-17}
+
+\begin{itemize}
+    \item Various bug fixes
+    \item Using a proprer logger
+    \item Fixed a problem regarding signatures in JARs
+    \item Asked a question about ECDSA on stackoverflow
+    \item Forger module
+\end{itemize}
+
+\subsection*{2022-03-24}
+
+\begin{itemize}
+    \item Website dropzone for transaction broadcasting
+    \item Bytecode programming language documentation
+\end{itemize}
+
+\subsection*{2022-03-31}
+
+\begin{itemize}
+    \item Piccions development
+    \item Fixed CORS issue with HTTP API
+    \item Displaying blockchain data on website
+\end{itemize}
+
+Today out main focus was the blockchain explorer website.
+We fixed an issue with cross-origin requests and started printing test data
+on the site.
+
+\subsection*{2022-04-07}
+
+\begin{itemize}
+    \item Generating wallets
+    \item Generating transaction files
+    \item Dumping transaction files content
+    \item Website refactor
+\end{itemize}
+
+Today we focused on the forger/ module. It is now able
+to generate wallets and save them on the file system, generate 
+signed transaction files, dumping the content of transaction files.
+The website has been redesigned completly.
+
+\subsection*{2022-04-14}
+
+\begin{itemize}
+    \item Various bug fixes
+    \item Blockchain SQL structure
+    \item Website and website backend
+\end{itemize}
+
+\subsection*{2022-04-15}
+
+\begin{itemize}
+    \item TeX Files structuring
+    \item Peer Discovery documentation
+\end{itemize}
+
+\subsection*{2022-04-16}
+
+\begin{itemize}
+    \item TeX Files structuring
+    \item Documentation
+\end{itemize}
+
+\subsection*{2022-04-28}
+
+\begin{itemize}
+    \item Javadoc
+    \item Fixed unordered blocks in website
+    \item Website dropzone
+    \item Documentation
+    \item Nodes now download blocks from eachother
+    \item CLI arguments for tools
+    \item Handly linux compile script
+    \item Variosu bug fixes
+\end{itemize}
+
+
+\subsection*{2022-05-05}
+
+\begin{itemize}
+    \item Documentation
+    \item Various bug fixes
+    \item Website
+    \item Difficulty adjustment
+    \item Actual Proof-of-work
+\end{itemize}
+
+\end{document}

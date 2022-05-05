@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{parskip} % skip line
+\usepackage{fullpage} % margins
+\usepackage{hyperref} % hyper references and document setup
+\usepackage{xcolor} % colored text
+\usepackage{graphics} % images
+\usepackage{listings} % format code
+\usepackage{tikz} % tikz diagrams
+\usepackage{makecell} % cell scopes for tables
+\usepackage[normalem]{ulem} % authour strikethrough
+\usepackage{biblatex} % references
+\usepackage{fancybox} % oval boxes
+\usepackage{subfiles} % project structure - best loaded last in the preamble
+
+\usetikzlibrary{ % tikz packages
+	matrix,
+	positioning,
+	fit,
+	cd % tikz-cd communitative diagrams
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdftitle={Blockchain},
+    pdfpagemode=FullScreen
+}
+
+\addbibresource{./references.bib}
+
+\definecolor{lightgray}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0.2}
+
+\lstdefinestyle{generic} {
+    backgroundcolor=\color{lightgray},
+}
+
+\lstdefinestyle{sql} {
+    language=SQL,
+  	backgroundcolor=\color{lightgray},
+  	breakatwhitespace=false,
+    basicstyle=\footnotesize,
+  	breaklines=true,
+  	captionpos=b,
+    commentstyle=\color{dkgreen},
+  	deletekeywords={...},
+  	escapeinside={\%*}{*)},
+  	extendedchars=true,
+  	keepspaces=true,
+  	keywordstyle=\color{blue},
+  	morekeywords={*,modify,MODIFY,...},
+  	numbers=none,
+  	showspaces=false,
+  	showstringspaces=false, 
+  	showtabs=false,
+  	stepnumber=1,
+}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=none,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    stringstyle=\ttfamily\color{red!50!brown},
+	morestring=*[d]{"},
+    backgroundcolor=\color{background}
+}
+
+\newcommand{\paragraphln}[1]{\paragraph{#1}\mbox{}\\}
+
+\title{
+    Blockchain \\
+    \large Documentation}
+    
+\author{
+    Paolo Bettelini, Gianni Grasso, \sout{Giacinto Di Santis} \\
+    \large Scuola d'Arti e Mestieri di Trevano (SAMT)}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\section{Introduction}
+
+\subfile{sections/introduction}
+
+\pagebreak
+
+\section{Analysis}
+
+\subfile{sections/analysis}
+
+\pagebreak
+
+\section{Blockchain}
+
+\subfile{sections/blockchain}
+
+\pagebreak
+
+\section{Blockchain Implementation}
+
+\subfile{sections/blockchain_impl}
+
+\pagebreak
+
+\section{Programming Language}
+
+\subfile{sections/programming_language}
+
+\pagebreak
+
+\section{Programming Language Implementation}
+
+\subfile{sections/programming_language_impl}
+
+\pagebreak
+
+\section{Structure}
+
+\subfile{sections/structure}
+
+\pagebreak
+
+\section{Testing}
+
+\subfile{sections/testing}
+
+\pagebreak
+
+\section{Conclusion}
+
+\subfile{sections/conclusion}
+
+\pagebreak
+
+\section{References}
+
+\nocite{*} % cite all entries
+
+\printbibliography[type=online, heading=subbibliography, title=Sitography]
+
+\end{document}

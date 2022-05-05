@@ -1,0 +1,10 @@
+rootProject.name = 'blockchain'
+include(
+    'node-full',
+    'node-miner',
+    'node-api',
+    'common',
+    'seeder',
+    'forger',
+    'webserver',
+    'piccions')
