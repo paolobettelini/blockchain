@@ -115,6 +115,7 @@ public class HighLevelNode extends Node {
         lastNonce = packet.getNonce();
 
         if (!miner.isMined(nonce)) {
+            Logger.info("Invalid Proof-of-Work received");
             return false;
         }
 
