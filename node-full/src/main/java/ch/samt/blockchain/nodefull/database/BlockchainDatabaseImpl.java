@@ -689,7 +689,7 @@ public class BlockchainDatabaseImpl implements BlockchainDatabase {
 
     @Override
     public void updateDifficulty() {
-        if (blockchainLength % Protocol.Blockchain.DIFFICULTY_ADJUSTMENT_RATE == 0) {
+        if (blockchainLength != 0 && blockchainLength % Protocol.Blockchain.DIFFICULTY_ADJUSTMENT_RATE == 0) {
             var id = Math.max(blockchainLength - Protocol.Blockchain.DIFFICULTY_ADJUSTMENT_DEPTH, 1);
             var oldBlock = getBlock(id);
             var lastBlock = getBlock(blockchainLength);
